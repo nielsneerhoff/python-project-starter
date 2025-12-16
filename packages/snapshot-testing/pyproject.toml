@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=75.0", "setuptools_scm>=8.1.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "snapshot-testing"
+dynamic = ["version"]
+description = "Snapshot testing tools for Python projects"
+readme = "README.md"
+authors = [
+    { name = "Niels Neerhoff", email = "nielsneerhoff@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "pytest"
+]
+
+[tool.setuptools_scm]
+root = "../../"
+version_file = "src/snapshot_testing/_version.py"
+tag_regex = "^snapshot-testing/(?:[\\w-]+-)?(?P<version>[vV]?\\d+(?:\\.\\d+){0,2}[^\\+]*)(?:\\+.*)?$"
+git_describe_command = "git describe --dirty --tags --long --match snapshot-testing/*"
+
+[tool.setuptools.packages.find]
+namespaces = true
+where = ["src"]
