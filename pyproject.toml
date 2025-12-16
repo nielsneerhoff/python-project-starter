@@ -1,10 +1,10 @@
 [project]
 name = "snapshot-testing-project"
 version = "0.1.0"
-description = "Snapshot testing for Python projects"
+description = "Snapshot testing tools for Python projects"
 requires-python = ">=3.13"
 dependencies = [
-    "pytest"
+    "pytest",
 ]
 
 [tool.uv.workspace]
@@ -17,8 +17,28 @@ snapshot-testing = { workspace = true }
 
 [dependency-groups]
 dev = [
+    "rust-just>=1.42.4",
+]
+lint = [
     "ruff>=0.14.9",
 ]
+typing = [
+    "mypy>=1.19.1",
+    "ty>=0.0.1a35",
+]
+
+[tool.mypy]
+strict = true
+check_untyped_defs = true
+follow_untyped_imports = true
+disallow_untyped_calls = false
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "tests"]
 
 [tool.ruff]
 force-exclude = true
