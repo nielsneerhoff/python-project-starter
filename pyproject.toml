@@ -88,6 +88,7 @@ extend-select = [
 ]
 ignore = [
     "LOG015",
+    "PT013"
 ]
 
 [tool.ruff.lint.pydocstyle]

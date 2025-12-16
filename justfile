@@ -13,8 +13,6 @@ format:
 format-fix:
     uv run --group lint ruff format packages/
 
-fix: format-fix lint-fix
-
 build:
     uv build --package snapshot-testing
 
@@ -29,3 +27,25 @@ mypy:
 
 ty:
     uv run --group typing ty check packages/
+
+mdformat:
+    uv run --with mdformat-mkdocs mdformat --check README.md
+
+mdformat-fix:
+    uv run --with mdformat-mkdocs mdformat README.md
+
+doccmd-ruff-format:
+    uv run --with doccmd doccmd --language=python --no-pad-file --no-pad-groups --command="ruff format --quiet" README.md
+
+doccmd-ruff-lint:
+    uv run --with doccmd doccmd --language=python --no-pad-file --no-pad-groups --command="ruff check --quiet --fix --unsafe-fixes" README.md
+
+doccmd-fix: doccmd-ruff-format doccmd-ruff-lint
+
+ssort:
+    uv run --with ssort ssort --check packages/
+
+ssort-fix:
+    uv run --with ssort ssort packages/
+
+fix:  ssort-fix format-fix lint-fix mdformat-fix doccmd-fix
