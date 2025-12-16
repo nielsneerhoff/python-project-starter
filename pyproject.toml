@@ -1,0 +1,77 @@
+[project]
+name = "snapshot-testing-project"
+version = "0.1.0"
+description = "Snapshot testing for Python projects"
+requires-python = ">=3.13"
+dependencies = [
+    "pytest"
+]
+
+[tool.uv.workspace]
+members = [
+    "packages/*",
+]
+
+[tool.uv.sources]
+snapshot-testing = { workspace = true }
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.9",
+]
+
+[tool.ruff]
+force-exclude = true
+line-length = 79
+preview = true
+
+[tool.ruff.format]
+skip-magic-trailing-comma = true
+docstring-code-format = true
+
+[tool.ruff.lint]
+extend-select = [
+    "A",
+    "AIR",
+    "ASYNC",
+    "B",
+    "C4",
+    "D417",
+    "DOC",
+    "E",
+    "ERA",
+    "EXE",
+    "FA",
+    "FIX",
+    "FURB",
+    "G",
+    "I",
+    "ICN",
+    "INP",
+    "ISC",
+    "LOG",
+    "NPY",
+    "PERF",
+    "PIE",
+    "PL",
+    "PT",
+    "PTH",
+    "PYI",
+    "RET",
+    "RUF",
+    "S",
+    "SIM",
+    "SLF",
+    "TC",
+    "UP",
+    "W",
+]
+ignore = [
+    "LOG015",
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.isort]
+split-on-trailing-comma = false
