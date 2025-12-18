@@ -1,5 +1,5 @@
 # setuptools-scm
-packages/*/src/*/_version.py
+packages/package-name/src/package_name/_version.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

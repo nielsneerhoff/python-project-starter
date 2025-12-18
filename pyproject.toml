@@ -1,11 +1,8 @@
 [project]
-name = "snapshot-testing-project"
+name = ""
 version = "0.1.0"
-description = "Snapshot testing tools for Python projects"
+description = ""
 requires-python = ">=3.13"
-dependencies = [
-    "pytest",
-]
 
 [tool.uv.workspace]
 members = [
@@ -13,7 +10,6 @@ members = [
 ]
 
 [tool.uv.sources]
-snapshot-testing = { workspace = true }
 
 [dependency-groups]
 dev = [
@@ -24,7 +20,7 @@ lint = [
 ]
 typing = [
     "mypy>=1.19.1",
-    "ty>=0.0.1a35",
+    "ty>=0.0.3",
 ]
 
 [tool.mypy]
@@ -32,10 +28,6 @@ strict = true
 check_untyped_defs = true
 follow_untyped_imports = true
 disallow_untyped_calls = false
-
-[[tool.mypy.overrides]]
-module = "tests.*"
-disallow_untyped_defs = false
 
 [tool.pytest.ini_options]
 pythonpath = ["src", "tests"]
@@ -49,48 +41,8 @@ preview = true
 skip-magic-trailing-comma = true
 docstring-code-format = true
 
-[tool.ruff.lint]
-extend-select = [
-    "A",
-    "AIR",
-    "ASYNC",
-    "B",
-    "C4",
-    "D417",
-    "DOC",
-    "E",
-    "ERA",
-    "EXE",
-    "FA",
-    "FIX",
-    "FURB",
-    "G",
-    "I",
-    "ICN",
-    "INP",
-    "ISC",
-    "LOG",
-    "NPY",
-    "PERF",
-    "PIE",
-    "PL",
-    "PT",
-    "PTH",
-    "PYI",
-    "RET",
-    "RUF",
-    "S",
-    "SIM",
-    "SLF",
-    "TC",
-    "UP",
-    "W",
-]
-ignore = [
-    "LOG015",
-    "PT013", # Import of pytest
-    "PLR0915" # Too many statements
-]
+[tool.ruff]
+select = ["ALL"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
