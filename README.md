@@ -1,4 +1,4 @@
-# Boilerplate project setup
+# Python project starter
 
 [![PyPI](https://img.shields.io/pypi/v/project-name?label=project-name)](https://pypi.org/project/project-name/)
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/project-name?label=downloads)](https://pypistats.org/packages/project-name)
